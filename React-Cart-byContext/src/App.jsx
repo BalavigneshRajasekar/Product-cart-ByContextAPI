@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
 import data from "./products.json";
-import { userContext, ProductStock } from "./UserContext";
+import { userContext } from "./UserContext";
 import Card from "./Card";
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [items, setItems] = useState([]);
   const [stock, setStock] = useState([]);
@@ -18,7 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      <userContext.Provider value={{ items, stock, price }}>
+      <userContext.Provider
+        value={{ items, setItems, stock, setStock, price, setPrice }}
+      >
         <Card></Card>
       </userContext.Provider>
     </div>
