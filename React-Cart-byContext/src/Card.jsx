@@ -41,10 +41,10 @@ function Card() {
     });
 
     setTotalPrice(total.reduce((x, y) => x + y)); //Total Number
-    // setDefaultPrice(total); // All Price as an array
   };
 
   const handleRemove = (id) => {
+    //Remove the cart based on the ID
     setItems(items.filter((f) => f.id !== id));
 
     // This logic is help us to handle the TotalPrice after cart is removed
