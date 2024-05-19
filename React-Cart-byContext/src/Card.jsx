@@ -74,7 +74,7 @@ function Card() {
           variant="h6"
           style={{ marginTop: "10px", fontWeight: 600, padding: "10px" }}
         >
-          Product's in Cart :
+          Total Product's in the Cart :
         </Typography>
 
         <Typography
