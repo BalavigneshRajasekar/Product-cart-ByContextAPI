@@ -12,8 +12,7 @@ import {
 } from "@mui/material";
 
 function Card() {
-  const { items, setItems, stock, setTotalPrice, totalPrice } =
-    useContext(userContext);
+  const { items, setItems, stock, setTotalPrice } = useContext(userContext);
 
   const handleChange = (e, id, eachPrice, index) => {
     //This Logic will help us to add the Subtotal value to the object
