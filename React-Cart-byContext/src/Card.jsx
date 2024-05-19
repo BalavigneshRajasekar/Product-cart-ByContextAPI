@@ -40,7 +40,7 @@ function Card() {
       return value.subTotal ? value.subTotal : value.price;
     });
 
-    setTotalPrice(total.reduce((x, y) => x + y)); //Total Number
+    setTotalPrice(total.reduce((x, y) => x + y)); //TotalPrice
   };
 
   const handleRemove = (id) => {
@@ -77,7 +77,7 @@ function Card() {
             <div>
               <CardMedia
                 component="img"
-                height="200"
+                height="160"
                 image={customImages[index]}
                 sx={{ width: 140, marginLeft: 2.5 }}
               ></CardMedia>
