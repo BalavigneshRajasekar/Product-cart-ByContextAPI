@@ -18,7 +18,7 @@ function TotalCart() {
       <Paper
         elevation={3}
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#f6f5f8",
           marginTop: 30,
           paddingTop: 30,
           paddingLeft: 10,
@@ -40,8 +40,22 @@ function TotalCart() {
             ${totalPrice}.00
           </Typography>
         </CardContent>
+
+        <Typography
+          style={{
+            color: "orange",
+            fontWeight: 700,
+            textAlign: "end",
+            fontSize: "0.8rem",
+          }}
+        >
+          Get Daily Offer With Nespola Card
+        </Typography>
         <CardActions>
-          <Button variant="contained" style={{ marginLeft: 10 }}>
+          <Button
+            variant="contained"
+            style={{ marginLeft: 10, marginTop: -40 }}
+          >
             Checkout
           </Button>
         </CardActions>

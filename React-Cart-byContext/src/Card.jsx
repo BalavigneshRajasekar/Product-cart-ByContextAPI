@@ -62,7 +62,7 @@ function Card() {
       {items.map((eachProd, index) => (
         <Paper
           elevation={3}
-          style={{ backgroundColor: "white", marginTop: 30 }}
+          style={{ backgroundColor: "#f6f5f8", marginTop: 30 }}
           key={index}
         >
           <div className="d-md-flex gap-3 px-2 py-5   rounded-3 ">
@@ -81,8 +81,15 @@ function Card() {
               <div>
                 <CardContent>
                   <Typography variant="h4">{eachProd.title}</Typography>
-                  <Typography variant="h6">Description</Typography>
-                  <Typography variant="p">{eachProd.description}</Typography>
+                  <Typography variant="h6" style={{ marginTop: "10px" }}>
+                    Description :
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    style={{ color: "#b3b3b5", fontSize: "1.5rem" }}
+                  >
+                    {eachProd.description}
+                  </Typography>
                 </CardContent>
               </div>
 
@@ -96,6 +103,9 @@ function Card() {
                       height: "30px",
                       borderRadius: "5px",
                       marginTop: "10px",
+                      color: "orange",
+                      fontWeight: 700,
+                      textAlign: "center",
                     }}
                     onChange={(e) =>
                       handleChange(e, eachProd.id, eachProd.price, index)
@@ -124,7 +134,7 @@ function Card() {
           </div>
           <CardActions className="d-flex justify-content-end  ">
             <Button
-              style={{ color: "orange", marginTop: -80 }}
+              style={{ color: "orange", marginTop: -80, fontWeight: 700 }}
               onClick={() => handleRemove(eachProd.id)}
             >
               Remove
@@ -133,19 +143,25 @@ function Card() {
           <Divider component="div" style={{ marginTop: -30 }}></Divider>
           <CardContent className="py-5">
             <div className="d-flex justify-content-between">
-              <Typography variant="h5" style={{ fontWeight: 600 }}>
+              <Typography
+                variant="h6"
+                style={{ fontWeight: 600, color: "#b3b3b5" }}
+              >
                 Subtotal :
               </Typography>
-              <Typography variant="h5" style={{ fontWeight: 600 }}>
+              <Typography variant="h6" style={{ fontWeight: 600 }}>
                 ${eachProd.subTotal ? eachProd.subTotal : eachProd.price}
                 .00
               </Typography>
             </div>
             <div className="d-flex justify-content-between mt-4">
-              <Typography variant="h5" style={{ fontWeight: 600 }}>
+              <Typography
+                variant="h6"
+                style={{ fontWeight: 600, color: "#b3b3b5" }}
+              >
                 Shipping :
               </Typography>
-              <Typography variant="h5" style={{ fontWeight: 600 }}>
+              <Typography variant="h6" style={{ fontWeight: 600 }}>
                 Free
               </Typography>
             </div>
