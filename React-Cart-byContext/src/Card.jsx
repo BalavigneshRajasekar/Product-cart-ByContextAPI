@@ -10,12 +10,12 @@ import {
   Button,
   Divider,
 } from "@mui/material";
-import TotalCart from "./TotalCart";
 
 function Card() {
-  const { items, setItems, stock, price } = useContext(userContext);
+  const { items, setItems, stock, setTotalPrice } = useContext(userContext);
 
   const handleChange = (e, id, eachPrice, index) => {
+    //This Logic will help us to add the Subtotal value to the object
     let updatedPrice = items.map((value) => {
       if (value.id == id) {
         return { ...value, ["subTotal"]: e.target.value * eachPrice };
@@ -23,8 +23,38 @@ function Card() {
       return value;
     });
     setItems(updatedPrice);
-    console.log(updatedPrice);
-    console.log(items);
+
+    //This Logic will help us to add the Total value of already existing cart and new increased quantity
+    let total = updatedPrice.map((value, i) => {
+      if (i == index) {
+        console.log(value);
+        return value.subTotal;
+      }
+      return value.subTotal ? value.subTotal : value.price;
+    });
+
+    setTotalPrice(total.reduce((x, y) => x + y)); //Total Number
+    // setDefaultPrice(total); // All Price as an array
+  };
+
+  const handleRemove = (id, index) => {
+    setItems(items.filter((f) => f.id !== id));
+
+    let deletedValue = items.map((value, i) => {
+      if (value.id == id) {
+        return 0;
+      }
+
+      return value.subTotal
+        ? value == 0
+          ? 0
+          : value.subTotal
+        : value == 0
+        ? 0
+        : value.price;
+    });
+    console.log(deletedValue);
+    setTotalPrice(deletedValue.reduce((x, y) => x + y));
   };
 
   return (
@@ -86,7 +116,12 @@ function Card() {
             </div>
           </div>
           <CardActions className="d-flex justify-content-end  ">
-            <Button style={{ color: "orange", marginTop: -80 }}>Remove</Button>
+            <Button
+              style={{ color: "orange", marginTop: -80 }}
+              onClick={() => handleRemove(eachProd.id, index)}
+            >
+              Remove
+            </Button>
           </CardActions>
           <Divider component="div" style={{ marginTop: -30 }}></Divider>
           <CardContent className="py-5">
@@ -111,7 +146,6 @@ function Card() {
           <Divider component="div"></Divider>
         </Paper>
       ))}
-      <TotalCart></TotalCart>
     </Container>
   );
 }
