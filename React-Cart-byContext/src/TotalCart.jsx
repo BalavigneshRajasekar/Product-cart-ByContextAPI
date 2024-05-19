@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import {
   CardActions,
   CardContent,
@@ -9,6 +9,7 @@ import {
   Button,
   Card,
 } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import userContext from "./UserContext";
 function TotalCart() {
   const { totalPrice } = useContext(userContext);
@@ -47,15 +48,17 @@ function TotalCart() {
               color: "orange",
               fontWeight: 700,
               textAlign: "end",
-              fontSize: "0.8rem",
+              fontSize: "0.6rem",
             }}
           >
-            Get Daily Offer With Nespola Card
+            * Get Daily Offer With Nespola Card
           </Typography>
           <CardActions>
             <Button
+              color="success"
               variant="contained"
               style={{ marginLeft: 10, marginTop: -40 }}
+              endIcon={<ShoppingCartIcon></ShoppingCartIcon>}
             >
               Checkout
             </Button>

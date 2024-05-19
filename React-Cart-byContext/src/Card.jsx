@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+
 import userContext from "./UserContext";
 import {
   CardActions,
@@ -10,6 +11,7 @@ import {
   Button,
   Divider,
 } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 
 function Card() {
   const { items, setItems, stock, setTotalPrice } = useContext(userContext);
@@ -61,12 +63,20 @@ function Card() {
         ? 0
         : value.price;
     });
-    console.log(deletedValue);
+
     setTotalPrice(deletedValue.reduce((x, y) => x + y));
   };
 
   return (
     <Container>
+      <div className="d-flex justify-content-between">
+        <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 600 }}>
+          Checkout Page :
+        </Typography>
+        <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 600 }}>
+          Product Count X {items.length}
+        </Typography>
+      </div>
       {items.map((eachProd, index) => (
         <Paper
           elevation={3}
@@ -148,6 +158,7 @@ function Card() {
           </div>
           <CardActions className="d-flex justify-content-end  ">
             <Button
+              endIcon={<Delete></Delete>}
               style={{ color: "orange", marginTop: -80, fontWeight: 700 }}
               onClick={() => handleRemove(eachProd.id)}
             >
