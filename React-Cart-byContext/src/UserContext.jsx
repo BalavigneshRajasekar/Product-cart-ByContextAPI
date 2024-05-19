@@ -8,17 +8,27 @@ const userContext = createContext();
 export const DataProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [stock, setStock] = useState([]);
-  const [price, setPrice] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     console.log(data.products);
     setStock(data.products.map((items) => items.stock));
-    setPrice(data.products.map((items) => items.price));
+
     setItems(data.products);
+
+    const IndividualPrice = data.products.map((item) => item.price);
+    setTotalPrice(IndividualPrice.reduce((x, y) => x + y));
   }, []);
   return (
     <userContext.Provider
-      value={{ items, setItems, stock, setStock, price, setPrice }}
+      value={{
+        items,
+        setItems,
+        stock,
+        setStock,
+        totalPrice,
+        setTotalPrice,
+      }}
     >
       {children}
     </userContext.Provider>
