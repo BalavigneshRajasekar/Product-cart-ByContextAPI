@@ -66,7 +66,7 @@ function Card() {
   };
 
   return (
-    <Container className="container-fluid ">
+    <Container>
       {items.map((eachProd, index) => (
         <Paper
           elevation={3}
