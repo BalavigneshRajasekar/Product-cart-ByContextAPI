@@ -56,7 +56,6 @@ function Card() {
     });
     console.log(deletedValue);
     setTotalPrice(deletedValue.reduce((x, y) => x + y));
-    console.log(totalPrice == 0);
   };
 
   return (
@@ -91,7 +90,13 @@ function Card() {
               <div className="d-flex justify-content-between">
                 <CardContent>
                   <select
-                    className="form-select"
+                    style={{
+                      width: "50px",
+                      outline: "none",
+                      border: "1px solid grey",
+                      height: "30px",
+                      borderRadius: "5px",
+                    }}
                     onChange={(e) =>
                       handleChange(e, eachProd.id, eachProd.price, index)
                     }
