@@ -70,11 +70,25 @@ function Card() {
   return (
     <Container>
       <div className="d-flex justify-content-between">
-        <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 600 }}>
-          Checkout Page :
+        <Typography
+          variant="h6"
+          style={{ marginTop: "10px", fontWeight: 600, padding: "10px" }}
+        >
+          Product's in Cart :
         </Typography>
-        <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 600 }}>
-          Product Count X {items.length}
+
+        <Typography
+          variant="h6"
+          style={{
+            marginTop: "10px",
+            fontWeight: 600,
+            backgroundColor: "black",
+            padding: "10px",
+            color: "white",
+            borderRadius: "50%",
+          }}
+        >
+          {items.length}
         </Typography>
       </div>
       {items.map((eachProd, index) => (
