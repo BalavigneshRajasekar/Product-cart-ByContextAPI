@@ -12,7 +12,8 @@ import {
 } from "@mui/material";
 
 function Card() {
-  const { items, setItems, stock, setTotalPrice } = useContext(userContext);
+  const { items, setItems, stock, setTotalPrice, totalPrice } =
+    useContext(userContext);
 
   const handleChange = (e, id, eachPrice, index) => {
     //This Logic will help us to add the Subtotal value to the object
@@ -27,7 +28,6 @@ function Card() {
     //This Logic will help us to add the Total value of already existing cart and new increased quantity
     let total = updatedPrice.map((value, i) => {
       if (i == index) {
-        console.log(value);
         return value.subTotal;
       }
       return value.subTotal ? value.subTotal : value.price;
@@ -37,9 +37,10 @@ function Card() {
     // setDefaultPrice(total); // All Price as an array
   };
 
-  const handleRemove = (id, index) => {
+  const handleRemove = (id) => {
     setItems(items.filter((f) => f.id !== id));
 
+    // This logic is help us to handle the TotalPrice after cart is removed
     let deletedValue = items.map((value, i) => {
       if (value.id == id) {
         return 0;
@@ -55,6 +56,7 @@ function Card() {
     });
     console.log(deletedValue);
     setTotalPrice(deletedValue.reduce((x, y) => x + y));
+    console.log(totalPrice == 0);
   };
 
   return (
@@ -118,7 +120,7 @@ function Card() {
           <CardActions className="d-flex justify-content-end  ">
             <Button
               style={{ color: "orange", marginTop: -80 }}
-              onClick={() => handleRemove(eachProd.id, index)}
+              onClick={() => handleRemove(eachProd.id)}
             >
               Remove
             </Button>
