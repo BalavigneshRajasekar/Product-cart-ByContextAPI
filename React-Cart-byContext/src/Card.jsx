@@ -13,6 +13,14 @@ import {
 
 function Card() {
   const { items, setItems, stock, setTotalPrice } = useContext(userContext);
+  //Images which are provided in data its not working that y used custom images
+  const customImages = [
+    "iphone.jpg",
+    "iphone10.jpg",
+    "samsunguniverse.jpg",
+    "oppof19.jpg",
+    "p30.jpg",
+  ];
 
   const handleChange = (e, id, eachPrice, index) => {
     //This Logic will help us to add the Subtotal value to the object
@@ -69,8 +77,8 @@ function Card() {
             <div>
               <CardMedia
                 component="img"
-                height="140"
-                image="iphone.jpg"
+                height="200"
+                image={customImages[index]}
                 sx={{ width: 140 }}
               ></CardMedia>
             </div>
