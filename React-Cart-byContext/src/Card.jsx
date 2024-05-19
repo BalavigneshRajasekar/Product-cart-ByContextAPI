@@ -79,7 +79,7 @@ function Card() {
                 component="img"
                 height="200"
                 image={customImages[index]}
-                sx={{ width: 140 }}
+                sx={{ width: 140, marginLeft: 2.5 }}
               ></CardMedia>
             </div>
             <div
@@ -97,6 +97,12 @@ function Card() {
                     style={{ color: "#b3b3b5", fontSize: "1.5rem" }}
                   >
                     {eachProd.description}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    style={{ marginTop: "10px", fontWeight: 600 }}
+                  >
+                    Sustainability
                   </Typography>
                 </CardContent>
               </div>
