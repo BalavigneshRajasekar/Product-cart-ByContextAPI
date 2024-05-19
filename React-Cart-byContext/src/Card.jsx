@@ -95,6 +95,7 @@ function Card() {
                       border: "1px solid grey",
                       height: "30px",
                       borderRadius: "5px",
+                      marginTop: "10px",
                     }}
                     onChange={(e) =>
                       handleChange(e, eachProd.id, eachProd.price, index)
