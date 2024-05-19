@@ -60,7 +60,7 @@ function TotalCart() {
               style={{ marginLeft: 10, marginTop: -40 }}
               endIcon={<ShoppingCartIcon></ShoppingCartIcon>}
             >
-              Checkout
+              Proceed
             </Button>
           </CardActions>
         </Paper>
