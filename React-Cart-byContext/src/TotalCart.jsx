@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   CardActions,
   CardContent,
@@ -7,9 +7,12 @@ import {
   Paper,
   Typography,
   Button,
-  Divider,
+  Card,
 } from "@mui/material";
+import userContext from "./UserContext";
 function TotalCart() {
+  const { totalPrice } = useContext(userContext);
+
   return (
     <div>
       <Paper
@@ -18,19 +21,30 @@ function TotalCart() {
           backgroundColor: "white",
           marginTop: 30,
           paddingTop: 30,
-          paddingLeft: 40,
-          paddingRight: 40,
+          paddingLeft: 10,
+          paddingRight: 10,
           paddingBottom: 30,
-          display: "flex",
-          justifyContent: "space-between",
         }}
       >
-        <Typography variant="h5" style={{ fontWeight: 600 }}>
-          Total Amount :{" "}
-        </Typography>
-        <Typography variant="h5" style={{ fontWeight: 600 }}>
-          $1000.00{" "}
-        </Typography>
+        <CardContent
+          style={{
+            display: "flex",
+            flexWrap: "nowrap",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography variant="h5" style={{ fontWeight: 600 }}>
+            Total Amount :
+          </Typography>
+          <Typography variant="h5" style={{ fontWeight: 600 }}>
+            ${totalPrice}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" style={{ marginLeft: 10 }}>
+            Checkout
+          </Button>
+        </CardActions>
       </Paper>
     </div>
   );
