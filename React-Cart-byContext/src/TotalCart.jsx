@@ -37,7 +37,7 @@ function TotalCart() {
             Total Amount :
           </Typography>
           <Typography variant="h5" style={{ fontWeight: 600 }}>
-            ${totalPrice}
+            ${totalPrice}.00
           </Typography>
         </CardContent>
         <CardActions>
