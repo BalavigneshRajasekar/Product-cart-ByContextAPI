@@ -17,6 +17,7 @@ function Card() {
   const { items, setItems, stock, setTotalPrice } = useContext(userContext);
   //Images which are provided in data its not working that y used custom images
   const customImages = [
+    "",
     "iphone.jpg",
     "iphone10.jpg",
     "samsunguniverse.jpg",
@@ -102,7 +103,7 @@ function Card() {
               <CardMedia
                 component="img"
                 height="160"
-                image={customImages[index]}
+                image={customImages[eachProd.id]}
                 sx={{ width: 140, marginLeft: 2.5 }}
               ></CardMedia>
             </div>
